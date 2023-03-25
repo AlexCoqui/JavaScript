@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        #res{
+            font: 18px arial;
+            }
+        input{
+            height: 45px;
+            box-shadow: 1px 1px 1px  rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <input type="button" value="Converter" onclick="medidas()">
+    <div>
+        <p id="res">Clique no botão acima para iniciar </p>
+    </div>
+    <script>
+        function medidas() {
+            var distancia = Number(prompt('Digite uma distância em metros (m)'));
+            var res = document.getElementById('res');
+            var resultkm = distancia / 1000;
+            var resultMilhas = distancia / 1609.34;
+            var resultHectometros = distancia / 100;
+            var resultDecametros = distancia / 10;
+            var resultDecimetros = distancia * 10;
+            var resultCentimetros = distancia * 100;
+            var resultMilimetros = distancia * 1000;
+            
+            if (isNaN(distancia)) {
+                var erro = alert('[ERRO] Valor invalido utilize ponto')
+    
+            } else {
+                var calculo = '<strong>A distancia de ' + distancia + ' metros, corresponde a...</strong> <br><br>' +
+                              resultMilhas.toLocaleString('pt-BR') + ' milhas (Mi) <br><br>' +
+                              resultkm.toLocaleString('pt-BR') + ' Quilometros (Km) <br><br>' +
+                              resultHectometros.toLocaleString('pt-BR') + ' hectômetros (Hm) <br><br>' +
+                              resultDecametros.toLocaleString('pt-BR') + ' decâmetros (Dam) <br><br>' +
+                              resultDecimetros.toLocaleString('pt-BR') + ' decímetros (dm) <br><br>' +
+                              resultCentimetros.toLocaleString('pt-BR') + ' centímetros (cm) <br><br>' +
+                              resultMilimetros.toLocaleString('pt-BR') + ' milímetros (mm) <br><br>';
+                res.innerHTML = `${calculo}`;
+                res.style.padding = '15px'
+    
+
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            border: 2px solid black;
+            padding: 15px;
+            width: 450px;
+            
+        }
+        #res{font: 20px arial;}
+        input{height: 45px;
+              border-radius: 2px;  
+             
+        }
+    </style>
+    <title>Conversor de temperatura</title>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <p><input type="button" value="Converter" onclick="converter()"></p>
+    <p id="res">Clique no botão acima para iniciar.</p>
+    <script>
+        function converter(params) {
+            var res = document.getElementById('res')
+            var temp = Number(prompt('Digite uma temperatura °C (Celsius)'))
+            var restK = temp + 273.15
+            var restf = temp * 1.8 + 32
+
+            if (isNaN(temp)) {
+                alert('[ERRO] Utilize ponto ao inves de virgula')
+            
+            }else{
+                var calculo = `<strong>A temperatura de ${temp}°C, corresponde a ...</strong> <br><br> ${restK} K (Kelvin)<br><br> ${restf}°F (Fahrenheit)`
+                res.innerHTML = calculo
+            }
+        }
+    </script>
+</body>
+</html>
