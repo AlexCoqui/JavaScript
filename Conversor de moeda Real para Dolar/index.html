@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font: 20px arial;
+            border: 2px solid black;
+            width: 450px;
+            padding: 15px;
+        }
+        input{
+            height: 45px;
+        }
+    </style>
+    <title>Conversor R$ -> US$</title> 
+    <script>
+        var dol = Number(prompt('Antes de mais nada. Quanto está a cotação do dólar agora?'))
+        
+        
+    </script>
+</head>
+<body>
+    <header> 
+        <h1>Conversor R$ -> US$</h1>
+     </header>
+        <section>
+            <div>
+                <p><input type="button" value="Conversor" onclick="conversor()"></p>
+            </div>
+            <div>
+                <p id="res">Clique no botão acima para iniciar.</p>
+            </div>
+        </section>
+        <script>
+            let numClicks = 0;
+            const maxClicks = 1;
+            function conversor() {
+                var res = document.getElementById('res')
+                var cart = Number(prompt('Quanto R$ você tem na carteira'))
+                if (isNaN(cart)) {
+                    alert('[ERRO]Valor invalido digite ponto')
+                } else {
+                    var saldo = cart / dol;
+                    res.innerHTML = `Com seu saldo da carteira de ${cart.toLocaleString('pt-BR')}, você conseguirá ${saldo.toLocaleString('pt-BR')} dólar!`;
+                    numClicks++;
+                    if (numClicks > maxClicks) {
+                        location.reload();
+                    }
+                }
+            }
+        </script>
+        
+</body>
+</html>
